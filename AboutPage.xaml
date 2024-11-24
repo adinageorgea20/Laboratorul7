@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeorgeaAdinaLab7.AboutPage"
+             Title="AboutPage"
+             BackgroundImageSource="poza1.jpg">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="10">
+            <!-- Content Over the Background -->
+            <Label Text="Welcome to My App"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Label Text="This app is gonna help you become more organized when it comes to daily chores!"
+                   FontSize="18"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
