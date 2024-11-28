@@ -1,11 +1,15 @@
+using GeorgeaAdinaLab7;
 using GeorgeaAdinaLab7.Models;
+
+namespace GeorgeaAdinaLab7;
 
 public partial class ListPage : ContentPage
 {
 	public ListPage()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+    }
+
     async void OnSaveButtonClicked(object sender, EventArgs e)
     {
         var slist = (ShopList)BindingContext;
@@ -13,6 +17,7 @@ public partial class ListPage : ContentPage
         await App.Database.SaveShopListAsync(slist);
         await Navigation.PopAsync();
     }
+
     async void OnDeleteButtonClicked(object sender, EventArgs e)
     {
         var slist = (ShopList)BindingContext;
