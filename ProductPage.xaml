@@ -1,31 +1,33 @@
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GeorgeaAdinaLab7.ListPage"
-             Title="ListPage"
+             x:Class="GeorgeaAdinaLab7.ProductPage"
+             Title="Product Page"
              xmlns:local="clr-namespace:GeorgeaAdinaLab7">
 
     <StackLayout Margin="20">
-        <Editor Placeholder="Enter the description of the shopping list"
-        Text="{Binding Description}"
-        HeightRequest="50">
+        <!-- Product Description Editor -->
+        <Editor Placeholder="Enter product description"
+                Text="{Binding Description}"
+                HeightRequest="50">
             <Editor.Behaviors>
                 <local:ValidationBehaviour />
             </Editor.Behaviors>
         </Editor>
 
+        <!-- Save and Delete Buttons -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Save"
- Clicked="OnSaveButtonClicked" />
+                    Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="1"
- Text="Delete"
- Clicked="OnDeleteButtonClicked"/>
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
         </Grid>
 
+        <!-- ListView to display products -->
         <ListView x:Name="listView" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -34,14 +36,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
-        <Button Text="Add/Choose Item to buy" MaximumWidthRequest="300"
-Clicked="OnChooseButtonClicked"/>
-        <Button Text="Delete Item" 
-        Grid.Row="2" 
-        Grid.Column="0" 
-        MaximumWidthRequest="200" 
-        Clicked="OnDeleteItemButtonClicked" />
-
+        <!-- Button to Add Product to Shopping List -->
+        <Button Text="Add Item to Shopping List" 
+                MaximumWidthRequest="300"
+                Clicked="OnAddButtonClicked"/>
     </StackLayout>
 </ContentPage>

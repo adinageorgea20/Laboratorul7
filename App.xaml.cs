@@ -6,7 +6,7 @@ namespace GeorgeaAdinaLab7
 {
     public partial class App : Application
     {
-        static ShoppingListDatabase database;
+        static ShoppingListDatabase? database;
         public static ShoppingListDatabase Database
         {
             get
@@ -22,6 +22,7 @@ namespace GeorgeaAdinaLab7
         }
         public App()
         {
+
             InitializeComponent();
 
             MainPage = new AppShell();
