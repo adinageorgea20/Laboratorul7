@@ -48,30 +48,19 @@ namespace GeorgeaAdinaLab7
 
         async void OnAddButtonClicked(object sender, EventArgs e)
         {
+            Product p;
             if (listView.SelectedItem != null)
             {
-                var p = listView.SelectedItem as Product;
-                if (p != null)
+                p = listView.SelectedItem as Product;
+                var lp = new ListProduct()
                 {
-                    var lp = new ListProduct()
-                    {
-                        ShopListID = sl.ID,
-                        ProductID = p.ID
-                    };
-                    await App.Database.SaveListProductAsync(lp);
-                    p.ListProducts = p.ListProducts ?? new List<ListProduct>();
-                    p.ListProducts.Add(lp);
-                    await Navigation.PopAsync();
-                }
-                else
-                {
-                    await DisplayAlert("Error", "Selected item is not a valid product.", "OK");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Error", "Please select a product to add.", "OK");
+                    ShopListID = sl.ID,
+                    ProductID = p.ID
+                };
+                await App.Database.SaveListProductAsync(lp);
+                p.ListProducts = new List<ListProduct> { lp };
+                await Navigation.PopAsync();
             }
         }
-    }
+        }
 }

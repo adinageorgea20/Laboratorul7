@@ -8,7 +8,8 @@ namespace GeorgeaAdinaLab7
 {
     class ValidationBehaviour : Behavior<Editor>
     {
-        protected override void OnAttachedTo(Editor entry)
+        
+protected override void OnAttachedTo(Editor entry)
         {
             entry.TextChanged += OnEntryTextChanged;
             base.OnAttachedTo(entry);
@@ -18,15 +19,11 @@ namespace GeorgeaAdinaLab7
             entry.TextChanged -= OnEntryTextChanged;
             base.OnDetachingFrom(entry);
         }
-        void OnEntryTextChanged(object? sender, TextChangedEventArgs? args)
+        void OnEntryTextChanged(object sender, TextChangedEventArgs args)
         {
-            
-            if (sender is Editor editor && args != null)
-            {
-                editor.BackgroundColor = string.IsNullOrEmpty(args.NewTextValue) ?
-                                         Color.FromRgba("#AA4A44") :
-                                         Color.FromRgba("#FFFFFF");
-            }
+            ((Editor)sender).BackgroundColor =
+            string.IsNullOrEmpty(args.NewTextValue) ? Color.FromRgba("#AA4A44") :
+            Color.FromRgba("#FFFFFF");
         }
     }
-    }
+}
