@@ -2,34 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeorgeaAdinaLab7.ListPage"
- Title="ListPage">
+             Title="ListPage">
     <StackLayout Margin="20">
         <Editor Placeholder="Enter the description of the shopping list"
- Text="{Binding Description}"
- HeightRequest="50" />
+                Text="{Binding Description}"
+                HeightRequest="50" />
+
+        <Picker x:Name="ShopPicker"
+                Title="Select Shop"
+                SelectedItem="{Binding SelectedShop}"
+                ItemDisplayBinding="{Binding ShopDetails}" />
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Save"
- Clicked="OnSaveButtonClicked" />
+                    Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="1"
- Text="Delete"
- Clicked="OnDeleteButtonClicked"/>
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
         </Grid>
 
-        <ListView x:Name="listView"
- Margin="20">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Detail="{Binding Description}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
+        <ListView x:Name="listView" Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+
         <Button Text="Add/Choose Item to buy" MaximumWidthRequest="300"
-Clicked="OnChooseButtonClicked"/>
+                Clicked="OnChooseButtonClicked"/>
         <Button Text="Delete Item" MaximumWidthRequest="300"
-Clicked="OnDeleteButtonClicked"/>
+                Clicked="OnDeleteButtonClicked"/>
     </StackLayout>
 </ContentPage>
